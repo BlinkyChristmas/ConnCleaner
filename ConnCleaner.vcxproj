@@ -125,7 +125,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
-      <AdditionalIncludeDirectories>.\ConnCleaner; .\ConnCleaner\common</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\ConnCleaner; .\common</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
