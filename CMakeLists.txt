@@ -26,7 +26,7 @@ add_executable(ConnCleaner
 if (WIN32)
     target_compile_definitions(ConnCleaner PRIVATE
         $<$<CONFIG:Release>:NDEBUG>
-        $<$<CONFIG:Debug>:_DEBUG>
+        $<$<CONFIG:Debug>:_DEBUG=1>
         _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS
     )
     target_compile_options(ConnCleaner PRIVATE
@@ -34,7 +34,7 @@ if (WIN32)
     )
 else()
     target_compile_definitions(ConnCleaner PRIVATE
-        $<$<CONFIG:Debug>:_DEBUG>
+        $<$<CONFIG:Debug>:DEBUG=1>
     )
 
     target_compile_options(ConnCleaner PRIVATE
