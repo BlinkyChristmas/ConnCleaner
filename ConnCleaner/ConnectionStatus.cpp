@@ -52,6 +52,7 @@ auto ConnectionStatus::load(const std::filesystem::path &filepath) -> bool  {
             }
         }
     }
+    input.close();
     // Delete our copy of the file
     std::filesystem::remove(fcopy) ;
     // Now, lets sort them all
