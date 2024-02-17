@@ -13,17 +13,16 @@ int main(int argc, const char * argv[]) {
 
     auto exitcode = EXIT_SUCCESS ;
     try {
-        if (argc != 3) {
-            throw std::runtime_error("hours to keep and connect log path required as input arguments") ;
+        if (argc != 2) {
+            throw std::runtime_error("connect log path required as input arguments") ;
         }
-        auto hours  = std::stoi(argv[1],nullptr,0) ;
-        auto logfile = std::filesystem::path(argv[2]) ;
+        auto logfile = std::filesystem::path(argv[1]) ;
         if (!std::filesystem::exists(logfile)) {
             std::clog << "Connection log does not exist, nothing to be done: "s << logfile.string() << std::endl;
             return exitcode ;
         }
         auto status = ConnectionStatus(logfile) ;
-        if (!status.save(logfile,hours)) {
+        if (!status.save(logfile)) {
             throw std::runtime_error("Unable to saee to: "s + logfile.string()) ;
         }
     }

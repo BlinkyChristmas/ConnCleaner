@@ -98,18 +98,15 @@ auto ConnectionStatus::operator[](const std::string &key)  -> LogContainer& {
 }
 
 // ========================================================================
-auto ConnectionStatus::save(const std::filesystem::path &path, int hours) -> bool {
+auto ConnectionStatus::save(const std::filesystem::path &path) -> bool {
     auto output = std::ofstream(path.string()) ;
     if (!output.is_open()){
         return false ;
     }
-    auto time = util::ourclock::now() - std::chrono::hours(hours) ;
     for (const auto &[name,value]:connectionStatus){
         auto cont = LogContainer() ;
         for (size_t i = 0 ; i < value.size();i++) {
-            if (value[i].timestamp >= time ) {
                 cont.addEntry(value[i]) ;
-            }
         }
         if (cont.empty()) {
             // it was empty?

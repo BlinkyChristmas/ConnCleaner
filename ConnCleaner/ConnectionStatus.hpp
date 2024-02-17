@@ -30,7 +30,7 @@ public:
     
     auto operator[](const std::string &key) const -> const LogContainer& ;
     auto operator[](const std::string &key)  -> LogContainer& ;
-    auto save(const std::filesystem::path &path, int hours) -> bool ;
+    auto save(const std::filesystem::path &path) -> bool ;
 };
 
 #endif /* ConnectionStatus_hpp */
